@@ -41,6 +41,82 @@ Instead of manually searching through hundreds of assessments, this system:
 | Deployment | Render / Streamlit Cloud |
 
 ---
+# ▶️ How To Run The Application (Local Setup)
+
+## 1️⃣ Clone Repository
+
+```
+git clone https://github.com/sushma-star/shl-rag-recommendation.git
+cd shl-rag-recommendation
+```
+
+---
+
+## 2️⃣ Create Virtual Environment (Recommended)
+
+### Windows:
+```
+python -m venv venv
+venv\Scripts\activate
+```
+
+### Mac/Linux:
+```
+python3 -m venv venv
+source venv/bin/activate
+```
+
+---
+
+## 3️⃣ Install Dependencies
+
+```
+pip install fastapi uvicorn streamlit sentence-transformers scikit-learn numpy
+```
+
+OR
+
+```
+pip install -r requirements.txt
+```
+
+---
+
+## 🚀 Run Backend (FastAPI)
+
+```
+uvicorn main:app --reload
+```
+
+Backend runs at:
+
+```
+http://127.0.0.1:8000
+```
+
+Health check:
+
+```
+http://127.0.0.1:8000/health
+```
+
+---
+
+## 🎨 Run Frontend (Streamlit)
+
+Open new terminal:
+
+```
+streamlit run app.py
+```
+
+Frontend runs at:
+
+```
+http://localhost:8501
+```
+
+---
 
 ## 📡 API Endpoints
 
