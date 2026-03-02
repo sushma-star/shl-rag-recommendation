@@ -1,0 +1,214 @@
+# 🚀 SHL RAG Recommendation System
+
+An AI-powered assessment recommendation system that suggests relevant SHL assessments based on a given Job Description using **Retrieval-Augmented Generation (RAG)** and semantic similarity search.
+
+---
+
+## 📌 Overview
+
+This project helps recruiters and hiring managers automatically find the most relevant SHL assessments based on a job description.
+
+Instead of manually searching through hundreds of assessments, this system:
+
+- Accepts a Job Description
+- Converts it into semantic embeddings
+- Compares it with SHL assessment embeddings
+- Returns the top matching assessments ranked by similarity
+
+---
+
+## 🧠 How It Works
+
+1. Load SHL assessment data from `products.json`
+2. Extract textual fields (name + description)
+3. Generate embeddings using Sentence Transformers
+4. Convert user query into embedding
+5. Compute cosine similarity
+6. Rank top matches
+7. Return structured JSON response
+
+---
+
+## ⚙️ Technology Stack
+
+| Layer | Technology |
+|--------|------------|
+| Backend | FastAPI |
+| Frontend | Streamlit |
+| NLP Model | SentenceTransformers |
+| Model Used | all-MiniLM-L6-v2 |
+| Similarity Search | Cosine Similarity |
+| Deployment | Render / Streamlit Cloud |
+
+---
+
+## 📡 API Endpoints
+
+### Health Check
+
+```
+GET /health
+```
+
+Response:
+
+```json
+{
+  "status": "ok"
+}
+```
+
+---
+
+### Recommendation Endpoint
+
+```
+POST /recommend
+```
+
+### Request Body
+
+```json
+{
+  "query": "Python Developer with REST API experience"
+}
+```
+
+### Response Format
+
+```json
+{
+  "recommended_assessments": [
+    {
+      "url": "https://www.shl.com/products/product-catalog/view/interpersonal-communications/",
+      "adaptive_support": "Yes",
+      "description": "Measures Python skills",
+      "duration": 60,
+      "remote_support": "Yes",
+      "test_type": ["Technical"]
+    }
+  ]
+}
+```
+
+---
+
+## 🎨 Frontend (Streamlit)
+
+The Streamlit UI:
+
+- Accepts job description input
+- Calls FastAPI backend
+- Displays recommended assessments
+- Shows URL and test type
+- Handles empty input & API errors
+
+### Run Locally
+
+```
+streamlit run app.py
+```
+
+---
+
+## 📊 Evaluation
+
+Evaluation results are stored in:
+
+```
+evaluation/sushma_akula.csv
+```
+
+### Metrics Considered
+
+- Relevance Accuracy
+- Semantic Match Quality
+- Top-K Recommendation Precision
+- Response Time
+
+---
+
+## ⚡ Performance
+
+- Precomputed embeddings for faster search
+- Lightweight transformer model
+- In-memory vector similarity
+- Low response latency
+- Suitable for small to medium datasets
+
+---
+
+## 🌍 Deployment Guide
+
+### Backend Deployment (Render)
+
+1. Push project to GitHub
+2. Create new Web Service on Render
+3. Use start command:
+
+```
+uvicorn backend.main:app --host 0.0.0.0 --port 10000
+```
+
+4. Deploy
+
+---
+
+### Frontend Deployment (Streamlit Cloud)
+
+1. Connect GitHub repository
+2. Select `app.py`
+3. Deploy
+
+---
+
+## 🔐 Future Improvements
+
+- Use FAISS for large-scale vector search
+- Add vector database
+- Add authentication
+- Add ranking fine-tuning
+- Add caching layer
+- Add confidence score display
+
+---
+
+## 🧪 Example Use Case
+
+### Input
+
+```
+Looking for a backend developer with Python, REST APIs, and problem-solving skills.
+```
+
+### Output
+
+- Python Programming Test
+- REST API Assessment
+- Cognitive Ability Test
+
+---
+
+## 👩‍💻 Author
+
+**Sushma Akula**
+
+GitHub:  
+https://github.com/sushma-star
+
+---
+
+## 🎯 Project Highlights
+
+✔ NLP-based semantic search  
+✔ RAG system implementation  
+✔ FastAPI backend  
+✔ Streamlit frontend  
+✔ Production-ready structure  
+✔ Deployment-ready  
+
+---
+
+## 📜 License
+
+This project is developed for educational and evaluation purposes.
