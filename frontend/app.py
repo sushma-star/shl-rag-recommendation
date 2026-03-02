@@ -4,6 +4,9 @@ import requests
 st.title("SHL Recommendation System")
 
 API_URL = "http://127.0.0.1:8000/recommend"  
+# API_URL = "https://shl-backend.onrender.com/recommend"  
+
+
 
 query = st.text_area("Enter Job Description")
 

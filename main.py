@@ -22,7 +22,7 @@ rag = None
 @app.on_event("startup")
 def load_rag():
     global rag
-    from rag_engine import RAGEngine
+    from backend.rag_engine import RAGEngine
     rag = RAGEngine()
 
 @app.get("/")
